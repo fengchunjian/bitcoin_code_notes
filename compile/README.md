@@ -3,7 +3,7 @@
 ### 依赖库安装
 
 安装编译环境
-```
+```bash
 apt-get -y install build-essential libtool autotools-dev automake autoconf pkg-config bsdmainutils python3
 ```
 
@@ -24,7 +24,8 @@ apt-get -y install libminiupnpc-dev libzmq3-dev
 
 安装GUI依赖库
 ```
-apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev
+apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools \
+ libprotobuf-dev protobuf-compiler libqrencode-dev
 ```
 
 ### 源代码编译
@@ -37,7 +38,7 @@ git checkout -b v0.15.1 v0.15.1
 ```
 
 编译源代码
-```
+```bash
 ./autogen.sh
 ./configure --with-incompatible-bdb --prefix=/data/install/bitcoin
 #--with-incompatible-bdb为忽略libdb版本差异
