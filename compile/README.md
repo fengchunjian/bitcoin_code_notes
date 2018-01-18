@@ -3,7 +3,9 @@
 ### 依赖库安装
 
 安装编译环境
-* apt-get -y install build-essential libtool autotools-dev automake autoconf pkg-config bsdmainutils python3
+```
+apt-get -y install build-essential libtool autotools-dev automake autoconf pkg-config bsdmainutils python3
+```
 
 *build-essential提供编译程序必须软件包的列表信息。*
 *libtool是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中。*
@@ -47,3 +49,8 @@
 编译完成后，安装目录下文件为：
 
 附官方文档：https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
+
+g++: internal compiler error: Killed (program cc1plus)问题解决:
+* dd if=/dev/zero of=/swapfile bs=64M count=16
+* mkswap /swapfile
+* swapon /swapfile
