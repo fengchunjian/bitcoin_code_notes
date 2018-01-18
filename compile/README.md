@@ -5,32 +5,34 @@
 * 安装编译环境
 
 ```bash
-apt-get -y install build-essential libtool autotools-dev automake autoconf pkg-config bsdmainutils python3
+apt-get -y install build-essential libtool autotools-dev \
+ automake autoconf pkg-config bsdmainutils python3
 ```
 
-安装必备依赖库
+* 安装必备依赖库
 
 ```
 apt-get -y install libssl-dev libboost-all-dev libevent-dev
 ```
 
-安装钱包依赖库
+* 安装钱包依赖库
 
 ```
 apt-get -y install libdb-dev libdb++-dev
 ```
 
-安装其他依赖库
+* 安装其他依赖库
 
 ```
 apt-get -y install libminiupnpc-dev libzmq3-dev
 ```
 
-安装GUI依赖库
+* 安装GUI依赖库
 
 ```
-apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools \
- libprotobuf-dev protobuf-compiler libqrencode-dev
+apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 \
+ qttools5-dev qttools5-dev-tools libprotobuf-dev \
+ protobuf-compiler libqrencode-dev
 ```
 
 ### 源代码编译
@@ -43,7 +45,7 @@ cd bitcoin/
 git checkout -b v0.15.1 v0.15.1
 ```
 
-编译源代码
+* 编译源代码
 
 ```bash
 ./autogen.sh
@@ -53,7 +55,7 @@ make
 make install
 ```
 
-其他编译选项
+* 其他编译选项
 
 ```bash
 #--disable-wallet不编译钱包
@@ -61,6 +63,7 @@ make install
 ```
 
 编译完成后，安装目录下文件为：
+
 ```bash
 ls /data/install/bitcoin/bin/
 bench_bitcoin  bitcoin-cli  bitcoind  bitcoin-qt  bitcoin-tx  test_bitcoin  test_bitcoin-qt
