@@ -105,9 +105,16 @@ ls -l
 banlist.dat  bitcoind.pid  blocks  chainstate  database  db.log  debug.log  peers.dat  wallet.dat
 ```
 
+* 停止bitcoind
+
+```bash
+./bitcoin-cli -testnet stop
+Bitcoin server stopping
+```
+
 ### bitcoin-cli访问JSON-RPC接口
 
-* 获取节点状态信息
+* 获取节点统计信息
 
 ```bash
 ./bitcoin-cli -testnet getinfo
@@ -131,6 +138,95 @@ banlist.dat  bitcoind.pid  blocks  chainstate  database  db.log  debug.log  peer
 }
 ```
 
+* 获取区块链信息
+
+```bash
+./bitcoin-cli -testnet getblockchaininfo
+{
+  "chain": "test",
+  "blocks": 721658,
+  "headers": 1259495,
+  "bestblockhash": "00000000000005c7be6d6a242e281756ea155ab248df12877c579439b3e9fcbe",
+  "difficulty": 262144,
+  "mediantime": 1456540510,
+  "verificationprogress": 0.5614052534742976,
+  "chainwork": "000000000000000000000000000000000000000000000007b2d3c70327f81d35",
+  "pruned": false,
+  "softforks": [
+    {
+      "id": "bip34",
+      "version": 2,
+      "reject": {
+        "status": true
+      }
+    }, 
+    {
+      "id": "bip66",
+      "version": 3,
+      "reject": {
+        "status": true
+      }
+    }, 
+    {
+      "id": "bip65",
+      "version": 4,
+      "reject": {
+        "status": true
+      }
+    }
+  ],
+  "bip9_softforks": {
+    "csv": {
+      "status": "defined",
+      "startTime": 1456790400,
+      "timeout": 1493596800,
+      "since": 0
+    },
+    "segwit": {
+      "status": "defined",
+      "startTime": 1462060800,
+      "timeout": 1493596800,
+      "since": 0
+    }
+  }
+}
+```
+
+* 获取挖矿信息
+
+```bash
+./bitcoin-cli -testnet getmininginfo
+{
+  "blocks": 721883,
+  "currentblockweight": 0,
+  "currentblocktx": 0,
+  "difficulty": 1,
+  "errors": "",
+  "networkhashps": 6860463578666.306,
+  "pooledtx": 0,
+  "chain": "test"
+}
+```
+
+* 获取钱包信息
+
+```bash
+./bitcoin-cli -testnet getwalletinfo
+{
+  "walletname": "wallet.dat",
+  "walletversion": 139900,
+  "balance": 0.00000000,
+  "unconfirmed_balance": 0.00000000,
+  "immature_balance": 0.00000000,
+  "txcount": 0,
+  "keypoololdest": 1516255482,
+  "keypoolsize": 1000,
+  "keypoolsize_hd_internal": 1000,
+  "paytxfee": 0.00000000,
+  "hdmasterkeyid": "1f264d1522573ed5b189940b4b80e60c1d8572e2"
+}
+```
+
 * 获取钱包余额
 
 ```bash
@@ -138,20 +234,4 @@ banlist.dat  bitcoind.pid  blocks  chainstate  database  db.log  debug.log  peer
 0.00000000
 ```
 
-* 获取钱包地址
-
-```bash
-./bitcoin-cli -testnet getaddressesbyaccount ""
-[
-  "muRsgEpaeMexPWSgfwEHuhSDpv8uw6C6w6"
-]
-```
-
-* 列出钱包所有接收到的交易
-
-```bash
-./bitcoin-cli -testnet listtransactions
-[
-]
-# 暂时还没有交易
-```
+更多JSON-RPC接口使用方法见官方文档：https://bitcoin.org/en/developer-reference#bitcoin-core-apis
