@@ -6,6 +6,9 @@
 * apt-get -y install build-essential libtool autotools-dev automake autoconf pkg-config bsdmainutils python3
 
 *build-essential提供编译程序必须软件包的列表信息。*
+*libtool是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中。*
+*autotools是个系列工具，主要由autoconf、automake、perl语言环境和m4等组成。*
+*pkg-config可以通过库提供的一个.pc文件获得库的各种必要信息，包括版本信息、编译和连接需要的参数等。*
 
 安装必备依赖库
 * apt-get -y install libssl-dev libboost-all-dev libevent-dev
