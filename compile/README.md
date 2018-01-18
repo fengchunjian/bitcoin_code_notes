@@ -13,6 +13,10 @@
 安装必备依赖库
 * apt-get -y install libssl-dev libboost-all-dev libevent-dev
 
+*OpenSSL是一个安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议。*
+*Boost库是一个可移植、提供源代码的C++库，作为标准库的后备，是C++标准化进程的开发引擎之一。*
+*Libevent 是一个用C语言编写的、轻量级的开源高性能事件通知库。*
+
 安装钱包依赖库
 * apt-get -y install libdb-dev libdb++-dev
 
