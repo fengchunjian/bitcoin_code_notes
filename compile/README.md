@@ -1,4 +1,4 @@
-# Ubuntu Server 16.04.1 LTS 64位下编译bitcoin-v0.15.1
+# Ubuntu Server 16.04.1 LTS 64位下编译并运行bitcoin-v0.15.1测试网络
 
 ### 依赖库安装
 
@@ -77,4 +77,81 @@ g++: internal compiler error: Killed (program cc1plus)问题解决:
 dd if=/dev/zero of=/swapfile bs=64M count=16
 mkswap /swapfile
 swapon /swapfile
+```
+
+* bitcoin-cli、bitcoind、bitcoin-qt区别
+
+```
+bitcoin-qt，带GUI的完整节点。
+bitcoind，无GUI的完整节点。
+bitcoin-cli，使用bitcoin-cli访问JSON-RPC接口。
+```
+
+### 启动bitcoind加入比特币测试网络
+
+* 启动bitcoind
+
+```bash
+cd /data/install/bitcoin/bin/
+./bitcoind --daemon -testnet
+Bitcoin server starting
+```
+
+* 钱包及数据目录
+
+```bash
+cd ~/.bitcoin/testnet3/
+ls -l
+banlist.dat  bitcoind.pid  blocks  chainstate  database  db.log  debug.log  peers.dat  wallet.dat
+```
+
+### bitcoin-cli访问JSON-RPC接口
+
+* 获取节点状态信息
+
+```bash
+./bitcoin-cli -testnet getinfo
+{
+  "deprecation-warning": "WARNING: getinfo is deprecated and will be fully removed in 0.16. Projects should transition to using getblockchaininfo, getnetworkinfo, and getwalletinfo before upgrading to 0.16",
+  "version": 150100,
+  "protocolversion": 70015,
+  "walletversion": 139900,
+  "balance": 0.00000000,
+  "blocks": 531765,
+  "timeoffset": 0,
+  "connections": 0,
+  "proxy": "",
+  "difficulty": 858629.5213440134,
+  "testnet": true,
+  "keypoololdest": 1516255482,
+  "keypoolsize": 2000,
+  "paytxfee": 0.00000000,
+  "relayfee": 0.00001000,
+  "errors": ""
+}
+```
+
+* 获取钱包余额
+
+```bash
+./bitcoin-cli -testnet getbalance
+0.00000000
+```
+
+* 获取钱包地址
+
+```bash
+./bitcoin-cli -testnet getaddressesbyaccount ""
+[
+  "muRsgEpaeMexPWSgfwEHuhSDpv8uw6C6w6"
+]
+```
+
+* 列出钱包所有接收到的交易
+
+```bash
+./bitcoin-cli -testnet listtransactions
+[
+]
+# 暂时还没有交易
 ```
