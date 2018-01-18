@@ -2,27 +2,32 @@
 
 ### 依赖库安装
 
-安装编译环境
+* 安装编译环境
+
 ```bash
 apt-get -y install build-essential libtool autotools-dev automake autoconf pkg-config bsdmainutils python3
 ```
 
 安装必备依赖库
+
 ```
 apt-get -y install libssl-dev libboost-all-dev libevent-dev
 ```
 
 安装钱包依赖库
+
 ```
 apt-get -y install libdb-dev libdb++-dev
 ```
 
 安装其他依赖库
+
 ```
 apt-get -y install libminiupnpc-dev libzmq3-dev
 ```
 
 安装GUI依赖库
+
 ```
 apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools \
  libprotobuf-dev protobuf-compiler libqrencode-dev
@@ -30,14 +35,16 @@ apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev
 
 ### 源代码编译
 
-下载源代码
-```
+* 下载源代码
+
+```bash
 git clone https://github.com/bitcoin/bitcoin.git
 cd bitcoin/
 git checkout -b v0.15.1 v0.15.1
 ```
 
 编译源代码
+
 ```bash
 ./autogen.sh
 ./configure --with-incompatible-bdb --prefix=/data/install/bitcoin
@@ -47,13 +54,14 @@ make install
 ```
 
 其他编译选项
-```
+
+```bash
 #--disable-wallet不编译钱包
 #--without-gui不编译GUI
 ```
 
 编译完成后，安装目录下文件为：
-```
+```bash
 ls /data/install/bitcoin/bin/
 bench_bitcoin  bitcoin-cli  bitcoind  bitcoin-qt  bitcoin-tx  test_bitcoin  test_bitcoin-qt
 ```
@@ -61,7 +69,8 @@ bench_bitcoin  bitcoin-cli  bitcoind  bitcoin-qt  bitcoin-tx  test_bitcoin  test
 附官方文档：https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
 
 g++: internal compiler error: Killed (program cc1plus)问题解决:
-```
+
+```bash
 dd if=/dev/zero of=/swapfile bs=64M count=16
 mkswap /swapfile
 swapon /swapfile
