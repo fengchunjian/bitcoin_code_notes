@@ -72,6 +72,7 @@ bool AppInit2(int argc, char* argv[])
 
     RandAddSeedPerfmon();
 
+	// 启动节点
     if (!CreateThread(StartNode, NULL))
         wxMessageBox("Error: CreateThread(StartNode) failed", "Bitcoin");
 
